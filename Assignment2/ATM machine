@@ -1,0 +1,136 @@
+#include <stdio.h>
+#include <stdlib.h>
+//functions declarations
+int login();
+void showmenu();
+void checkbalance();
+void deposit();
+void withdraw();
+// login function definition
+int login(){
+
+int userpin,correctpin=1234;
+int attempt=0;
+ while(attempt<3){
+
+printf("Please enter your pin\n");
+scanf("%d",&userpin);
+
+if(userpin==correctpin){
+
+ printf("welcome!Login successful\n");
+ return 1;
+
+}
+    else{
+int remaining=2-attempt;
+printf("Incorrect password.%d attempts remaining\n",remaining);
+}
+  attempt++;
+
+}
+ if (attempt>=3){
+ printf("Maximum attemmpts exceeded.locked out\n");
+ }
+
+ return 0;
+ }
+
+// showmenu function definition
+
+ void showmenu(){
+ printf("=====ATM MENU======\n");
+ printf("1.checkbalance\n2.Deposit money\n3.Withdraw\n4.Exit\n");
+ printf("please select an option above\n");
+ }
+
+
+
+// checkbalance function definition
+ void checkbalance(int *balance){
+  printf("Your balance is %d \n",*balance);}
+
+//deposit function definitions
+
+  void deposit(int *balance){
+    int amount;
+    printf("enter amount you wish to deposit\n");
+    scanf("%d",&amount);
+   if(amount<0){
+ printf("Invalid input\n");
+ }
+  else{
+
+  *balance=amount+*balance;
+   printf("Your new balance is %d \n",*balance);}
+  }
+
+  //withdraw function definition
+   void withdraw(int *balance){
+
+    printf("Your balance is %d \n",*balance);
+    printf("please enter amount you wish to withdraw\n");
+    int amount;
+    scanf("%d",&amount);
+
+     if(amount>*balance){
+      printf("Insufficient funds\n");
+
+     }
+     else if(amount<0){printf("Invalid input\n"); }
+       else {*balance=*balance-amount;
+            printf("Your new balance is %d \n",*balance);}
+
+   }
+
+  // main function
+   int choice,balance=2000;
+
+
+   int main(){
+   if(!login()){
+    return 0;
+   }
+
+
+  while(1){
+   showmenu();
+ scanf("%d",&choice);
+  switch(choice){
+   case 1:
+ checkbalance(&balance);
+ break;
+
+   case 2:
+ deposit(&balance);
+  break;
+
+   case 3:
+ withdraw(&balance);
+  break;
+
+   case 4:
+    printf("exiting the system\n");
+   return 0;
+
+  default:printf("Invalid choice, try again\n");
+
+  }
+
+
+
+
+
+  }
+
+
+
+
+
+  return 0;
+   }
+
+
+
+
+
