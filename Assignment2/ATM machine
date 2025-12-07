@@ -92,7 +92,6 @@ printf("Incorrect password.%d attempts remaining\n",remaining);
     return 0;
    }
 
-
   while(1){
    showmenu();
  scanf("%d",&choice);
@@ -115,19 +114,8 @@ printf("Incorrect password.%d attempts remaining\n",remaining);
 
   default:printf("Invalid choice, try again\n");
 
-  }
-
-
-
-
-
-  }
-
-
-
-
-
-  return 0;
+  }  }
+ return 0;
    }
 
 
