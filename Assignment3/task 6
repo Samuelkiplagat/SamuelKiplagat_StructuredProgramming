@@ -1,0 +1,22 @@
+
+#include <stdio.h>
+
+void incrementValue(int x){
+  x++;
+}
+void incrementReference(int *x){
+ (*x)++;
+}
+
+
+int main(){
+int number=6;
+
+incrementValue(number);
+ printf("The result when pass by value is used is %d\n",number);
+
+incrementReference(&number);
+ printf("The value when pass by reference is used is %d\n",number);
+
+ return 0;
+}
