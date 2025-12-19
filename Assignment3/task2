@@ -1,0 +1,18 @@
+include <stdio.h>
+
+int main(){
+
+int num;
+num=10;
+
+int *ptr;
+ptr=&num;
+
+
+printf("value of num is %d\n",num);
+printf("value stored in ptr is %p\n",ptr);
+printf("Address of num is %p\n",&num);
+printf("Value accessed using *ptr is %d \n",*ptr);
+
+return 0;
+}
